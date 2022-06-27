@@ -4,31 +4,41 @@ import {
     Image,
     Flex,
     Button,
-    SimpleGrid,
     Box,
     Center,
+    useMediaQuery,
 } from '@chakra-ui/react'
 
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 
-function App() {
+export default function App() {
+    const [isLargerThan400] = useMediaQuery('(min-width: 400px)')
+
     return (
         <>
-            <Box h={'100vh'} bg="#F0E9E3">
+            <Box p={'1em'}>
                 <Center>
                     <Flex
                         direction={['column', 'row']}
                         borderRadius="10px"
                         bg="white"
                         w={'40em'}
-                        mt={'10em'}
+                        mt={['0', '10em']}
                     >
-                        <Image
-                            src="../images/image-product-desktop.jpg"
-                            objectFit="cover"
-                            boxSize={['10em', '30em']}
-                            borderRadius={'10px 0 0 10px'}
-                        />
+                        {isLargerThan400 ? (
+                            <Image
+                                src="../images/image-product-desktop.jpg"
+                                objectFit="cover"
+                                width="50%"
+                                borderRadius={'10px 0 0 10px'}
+                            />
+                        ) : (
+                            <Image
+                                src="../images/image-product-mobile.jpg"
+                                objectFit="cover"
+                                borderRadius={'10px 10px 0 0'}
+                            />
+                        )}
                         <Flex direction="column" p="2em">
                             <Text
                                 sx={{
@@ -59,32 +69,48 @@ function App() {
                                     fontWeight: 300,
                                     fontSize: '15px',
                                     color: 'gray.700',
-                                    mb: '2em',
+                                    mb: '3em',
                                 }}
                             >
                                 A floral, solar and voluptuous interpretation
                                 composed by Olivier Polge, Perfumer-Creator for
                                 the House of CHANEL.
                             </Text>
-                            <SimpleGrid
-                                columns={2}
-                                pb="2em"
-                                textAlign={'center'}
-                            >
-                                <Text>$149.99</Text>
-                                <Text>$169.99</Text>
-                            </SimpleGrid>
+                            <Flex alignItems={'center'}>
+                                <Text
+                                    sx={{
+                                        fontFamily: 'Abhaya Libre',
+                                        fontWeight: 700,
+                                        fontSize: '45px',
+                                        color: 'green.700',
+                                        mr: '0.35em',
+                                    }}
+                                >
+                                    $149.99
+                                </Text>
+                                <Text
+                                    sx={{
+                                        fontFamily: 'Montserrat',
+                                        fontSize: '15px',
+                                        color: 'gray.600',
+                                        textDecoration: 'line-through',
+                                    }}
+                                >
+                                    $169.99
+                                </Text>
+                            </Flex>
                             <Button
-                                p="1.5em"
+                                p={['0em', '1.5em']}
                                 leftIcon={<AiOutlineShoppingCart />}
                                 colorScheme="green"
+                                bg="green.600"
                             >
                                 Add to Cart
                             </Button>
                         </Flex>
                     </Flex>
                 </Center>
-                <div class="attribution">
+                <div className="attribution">
                     Challenge by{' '}
                     <a
                         href="https://www.frontendmentor.io?ref=challenge"
@@ -102,5 +128,3 @@ function App() {
         </>
     )
 }
-
-export default App
