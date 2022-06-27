@@ -36,32 +36,46 @@ function App() {
                                     fontWeight: 300,
                                     fontSize: '12px',
                                     color: 'gray.700',
-                                    mb: '1em',
+                                    mb: '1.5em',
                                 }}
                             >
                                 P E R F U M E
                             </Text>
                             <Text
                                 sx={{
-                                    fontFamily: 'Montserrat',
-                                    fontWeight: 300,
-                                    fontSize: '30px',
+                                    fontFamily: 'IBM Plex Serif',
+                                    fontWeight: 700,
+                                    fontSize: '33px',
                                     color: 'black',
-                                    mb: '1em',
+                                    lineHeight: '1em',
+                                    mb: '0.75em',
                                 }}
                             >
                                 Gabrielle Essence Eau De Parfum
                             </Text>
-                            <Text>
+                            <Text
+                                sx={{
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: 300,
+                                    fontSize: '15px',
+                                    color: 'gray.700',
+                                    mb: '2em',
+                                }}
+                            >
                                 A floral, solar and voluptuous interpretation
                                 composed by Olivier Polge, Perfumer-Creator for
                                 the House of CHANEL.
                             </Text>
-                            <SimpleGrid columns={2}>
+                            <SimpleGrid
+                                columns={2}
+                                pb="2em"
+                                textAlign={'center'}
+                            >
                                 <Text>$149.99</Text>
                                 <Text>$169.99</Text>
                             </SimpleGrid>
                             <Button
+                                p="1.5em"
                                 leftIcon={<AiOutlineShoppingCart />}
                                 colorScheme="green"
                             >
@@ -78,7 +92,11 @@ function App() {
                     >
                         Frontend Mentor
                     </a>
-                    . Coded by <a href="#">Paul Valladares</a>.
+                    . Coded by{' '}
+                    <a href="https://github.com/dreyfus92" target="_blank">
+                        Paul Valladares
+                    </a>
+                    .
                 </div>
             </Box>
         </>
